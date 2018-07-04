@@ -526,6 +526,12 @@ class heliotrope extends eqLogic {
 class heliotropeCmd extends cmd {
 
     public function execute($_options = null) {
+
+      if ($this->getLogicalId() == 'refresh') {
+        $this->getEqLogic()->getDaily();
+        $this->getEqLogic()->getInformations();        
+      }
+    
     }
 
 }
