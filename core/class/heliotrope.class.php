@@ -47,9 +47,7 @@ class heliotrope extends eqLogic {
 
     public function preUpdate() {
       
-      $coord = trim($this->getConfiguration('coordinate'));
-
-      if (len($coord) == 0) {
+      if (strlen(trim($this->getConfiguration('coordinate'))) == 0) {
         throw new Exception(__('Vous devez sélectionner renseigner des coordonnées',__FILE__));
         return;        
       }
