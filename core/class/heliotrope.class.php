@@ -46,10 +46,12 @@ class heliotrope extends eqLogic {
     }
 
     public function preUpdate() {
+      /*
       if (len($this->getConfiguration('coordinate')) == 0) {
         throw new Exception(__('Vous devez sélectionner renseigner des coordonnées',__FILE__));
         return;        
-      }  
+      }
+      */  
       /*
       $geotrav = eqLogic::byId($this->getConfiguration('geoloc'));
       if (!(is_object($geotrav) && $geotrav->getEqType_name() == 'geotrav')) {

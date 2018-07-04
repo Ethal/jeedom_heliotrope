@@ -137,8 +137,8 @@ $eqLogics = eqLogic::byType('heliotrope');
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">{{Coordonée}}</label>
-                            <div class="col-sm-6">
-                                <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="coordinate" placeholder="latitude,Longitude"/>
+                            <div class="col-sm-3">
+                                <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="coordinate" placeholder="Latitude,Longitude (xx.xx,yy.yy)"/>
                             </div>
                         </div>
 
