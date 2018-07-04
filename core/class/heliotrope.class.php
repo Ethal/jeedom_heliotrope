@@ -46,12 +46,14 @@ class heliotrope extends eqLogic {
     }
 
     public function preUpdate() {
-      /*
-      if (len($this->getConfiguration('coordinate')) == 0) {
+      
+      $coord = trim($this->getConfiguration('coordinate'));
+
+      if (len($coord) == 0) {
         throw new Exception(__('Vous devez sélectionner renseigner des coordonnées',__FILE__));
         return;        
       }
-      */  
+       
       /*
       $geotrav = eqLogic::byId($this->getConfiguration('geoloc'));
       if (!(is_object($geotrav) && $geotrav->getEqType_name() == 'geotrav')) {
@@ -63,6 +65,18 @@ class heliotrope extends eqLogic {
 
     public function postUpdate() {
         foreach (eqLogic::byType('heliotrope', true) as $heliotrope) {
+            $refresh = heliotropeCmd::byEqLogicIdAndLogicalId($heliotrope->getId(),'refresh');
+            if (!is_object($refresh)) {
+              $refresh = new heliotropeCmd();
+              $refresh->setName(__('Rafraîchir', __FILE__));
+              $refresh->setEqLogic_id($this->getId());
+              $refresh->setLogicalId('refresh');
+              $refresh->setIsVisible(1);
+              $refresh->setType('action');
+              $refresh->setSubType('other');
+            }
+            $refresh->save();
+
             $heliotropeCmd = heliotropeCmd::byEqLogicIdAndLogicalId($heliotrope->getId(),'azimuth360');
             if (!is_object($heliotropeCmd)) {
                 $heliotropeCmd = new heliotropeCmd();
@@ -244,8 +258,8 @@ class heliotrope extends eqLogic {
             $heliotropeCmd->setConfiguration('type', 'time');
             $heliotropeCmd->save();
 
-                heliotrope::getInformations();
-                heliotrope::getDaily();
+            heliotrope::getInformations();
+            heliotrope::getDaily();
         }
     }
 
