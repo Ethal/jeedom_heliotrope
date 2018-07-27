@@ -18,18 +18,17 @@
 	</div>
 </div><br/>
 <script>
-    if ('#refresh_id#' != ''){
-        $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
-                                                          jeedom.cmd.execute({id: '#refresh_id#'});
-                                                              });
-        }else{
-            $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').remove();
-        }
-</script>
-
-<script>
 var chart1;
 var chart2;
+if ('#refresh_id#' != ''){
+    $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
+                                                      jeedom.cmd.execute({id: '#refresh_id#'});
+                                                      });
+}else{
+    $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').remove();
+}
+
+
 if($('#azimuth#id#').html() != undefined){
 	chart1 = new Highcharts.Chart({
         chart: {
