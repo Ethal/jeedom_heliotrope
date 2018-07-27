@@ -378,7 +378,7 @@ class heliotrope extends eqLogic {
         $this->checkAndUpdateCmd('daystatus',$status);
         $this->checkAndUpdateCmd('daytext',$texte);
         log::add('heliotrope', 'debug', 'Statut ' . $status . ' ' . $texte . ' ' . round($azimuth360) . ' ' . round($altitude));
-        $this->refreshWidget();
+        //$this->refreshWidget();
     }
 
     public function getDaily() {
@@ -457,7 +457,7 @@ class heliotrope extends eqLogic {
         $this->checkAndUpdateCmd('crepast',$crepast);
         $this->checkAndUpdateCmd('zenith',$zenith);
         $this->checkAndUpdateCmd('daylen',$daylen);
-        $this->refreshWidget();
+        //$this->refreshWidget();
     }
 
     /*
