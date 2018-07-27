@@ -59,6 +59,7 @@ $eqLogics = eqLogic::byType('heliotrope');
             <li role="presentation"><a href="#infotab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{Position du Soleil}}</a></li>
             <li role="presentation"><a href="#levertab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-sun-o"></i> {{Lever Soleil}}</a></li>
             <li role="presentation"><a href="#couchertab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-moon-o"></i> {{Coucher Soleil}}</a></li>
+            <li role="presentation"><a href="#otherstab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{Autre}}</a></li>
         </ul>
         <div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
             <div role="tabpanel" class="tab-pane active" id="eqlogictab">
@@ -222,6 +223,21 @@ $eqLogics = eqLogic::byType('heliotrope');
                 <br><span>{{ - sélectionner le mode déclenché et ajouter un déclencheur avec la commande voulue, ex : #Objet##Equipement##Coucher du Soleil#}}</span>
                 <br><span>{{ - ajouter un bloc avec et choisir le type A, là on peut choisir son heure pour activation par exemple avec une commande info : #Objet##Equipement##Coucher du Soleil#}}</span>
                 <br><span>{{ - si on souhaite modifier la valeur de la commande il existe la commande time_op qui permet par exemple de faire +10}}</span>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="otherstab">
+                    <br/>
+                    <table id="table_others" class="table table-bordered table-condensed">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">#</th>
+                                <th style="width: 300px;">{{Nom}}</th>
+                                <th style="width: 200px;">{{Paramètres}}</th>
+                                <th style="width: 100px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
             </div>
         </div>
     </div>

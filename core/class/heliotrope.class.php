@@ -73,6 +73,7 @@ class heliotrope extends eqLogic {
               $refresh->setType('action');
               $refresh->setSubType('other');
             }
+            $refresh->setConfiguration('type', 'others');
             $refresh->save();
 
             $heliotropeCmd = heliotropeCmd::byEqLogicIdAndLogicalId($heliotrope->getId(),'azimuth360');

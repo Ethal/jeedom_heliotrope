@@ -20,7 +20,7 @@ function addCmdToTable(_cmd) {
     var _cmd = {configuration: {}};
   }
 
-  if (init(_cmd.configuration.type) != 'lever' && init(_cmd.configuration.type) != 'coucher') {
+  if (init(_cmd.configuration.type) != 'lever' && init(_cmd.configuration.type) != 'coucher' && init(_cmd.configuration.type) != 'others') {
     var disabled = (init(_cmd.configuration.virtualAction) == '1') ? 'disabled' : '';
     var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">';
     tr += '<td>';
@@ -43,7 +43,7 @@ function addCmdToTable(_cmd) {
     $('#table_cmd tbody').append(tr);
     $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
 
-}
+  }
 
 if (init(_cmd.configuration.type) == 'lever') {
   var disabled = (init(_cmd.configuration.virtualAction) == '1') ? 'disabled' : '';
@@ -94,4 +94,32 @@ if (init(_cmd.configuration.type) == 'coucher') {
   $('#table_coucher tbody tr:last').setValues(_cmd, '.cmdAttr');
 
 }
+
+    if (init(_cmd.configuration.type) == 'others') {
+        var disabled = (init(_cmd.configuration.virtualAction) == '1') ? 'disabled' : '';
+        var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">';
+        tr += '<td>';
+        tr += '<span class="cmdAttr" data-l1key="id"></span>';
+        tr += '</td>';
+        tr += '<td>';
+        tr += '<span class="cmdAttr" data-l1key="name"></span></td>';
+        tr += '<td>';
+        if (_cmd.subType == 'numeric') {
+            tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Historiser}}</label></span>';
+        }
+        tr += '</td>';
+        tr += '<td>';
+        if (is_numeric(_cmd.id)) {
+            tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure"><i class="fa fa-cogs"></i></a> ';
+            tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i>{{Tester}}</a>';
+        }
+        tr += '</td>';
+        tr += '</tr>';
+        $('#table_others tbody').append(tr);
+        $('#table_others tbody tr:last').setValues(_cmd, '.cmdAttr');
+        
+    }
+    
+    
+    
 }
