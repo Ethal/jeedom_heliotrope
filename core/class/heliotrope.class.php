@@ -24,6 +24,7 @@ class heliotrope extends eqLogic {
         foreach (eqLogic::byType('heliotrope', true) as $heliotrope) {
                 log::add('heliotrope', 'debug', 'info daily');
                 $heliotrope->getInformations();
+                $this->refreshWidget();
         }
     }
 
@@ -33,6 +34,7 @@ class heliotrope extends eqLogic {
                     log::add('heliotrope', 'debug', 'info daily');
                     $heliotrope->getDaily();
                     $heliotrope->getInformations();
+                    $this->refreshWidget();
             }
         }
     }
@@ -42,6 +44,7 @@ class heliotrope extends eqLogic {
                 log::add('heliotrope', 'debug', 'info daily');
                 $heliotrope->getDaily();
                 $heliotrope->getInformations();
+                $this->refreshWidget();
         }
     }
 
@@ -259,6 +262,8 @@ class heliotrope extends eqLogic {
 
             heliotrope::getInformations();
             heliotrope::getDaily();
+            $this->refreshWidget();
+            
         }
     }
 
@@ -379,7 +384,7 @@ class heliotrope extends eqLogic {
         $this->checkAndUpdateCmd('daystatus',$status);
         $this->checkAndUpdateCmd('daytext',$texte);
         log::add('heliotrope', 'debug', 'Statut ' . $status . ' ' . $texte . ' ' . round($azimuth360) . ' ' . round($altitude));
-        $this->refreshWidget();
+        //$this->refreshWidget();
     }
 
     public function getDaily() {
@@ -458,7 +463,7 @@ class heliotrope extends eqLogic {
         $this->checkAndUpdateCmd('crepast',$crepast);
         $this->checkAndUpdateCmd('zenith',$zenith);
         $this->checkAndUpdateCmd('daylen',$daylen);
-        $this->refreshWidget();
+        //$this->refreshWidget();
     }
 
     /*
@@ -542,7 +547,8 @@ class heliotropeCmd extends cmd {
 
       if ($this->getLogicalId() == 'refresh') {
         $this->getEqLogic()->getDaily();
-        $this->getEqLogic()->getInformations();        
+        $this->getEqLogic()->getInformations();
+        $this->refreshWidget();
       }
     
     }
